@@ -1,0 +1,216 @@
+body {
+    background: #eee;
+    margin: 0;
+    cursor: default;
+}
+h1 {
+    font-size: 25px;
+    font-weight: bold;
+    margin: 0 0 30px 0;
+    line-height: 35px;
+}
+.calc {
+    padding: 20px 60px;
+    margin: 0 auto;
+    width: 445px;
+    box-sizing: content-box;
+    max-width: 80%;
+    background: #fff;
+    background-size: 80%;
+    background-repeat: no-repeat;
+    background-position: center;
+    color: #44696c;
+    text-align: center;
+    font-family: 'Lato', sans-serif;
+}
+*:focus {
+    outline: none;
+}
+input.variableSize {
+    padding: 0;
+    border: none;
+}
+.inputXp {
+    color: #44696c;
+    font-size: 25px;
+    font-family: 'Lato', sans-serif;
+}
+.xp {
+    font-size: 25px;
+}
+.level, .timeNeeded {
+    line-height: 45px;
+    font-size: 47px;
+    white-space: nowrap;
+}
+.level {
+    margin-top: 30px;
+}
+.timeNeeded {
+    padding: 10px 0;
+    font-size: 43px;
+}
+.progress, .xpProg {
+    margin: 20px auto;
+    width: 100%;
+    position: relative;
+}
+.progressBg, .progressFront {
+    background: #d7dfd6;
+    height: 9px;
+    width: 100%;
+    border-radius: 7px;
+    position: absolute;
+    left: 0;
+    top: 0;
+    transition: width 0.3s;
+}
+.progressFront {
+    background: #ee5b5b;
+    width: 50%;
+}
+.progressHandle{
+    position: absolute;
+    right: -4px;
+    top: -4px;
+    height: 17px;
+    width: 17px;
+    background: #ee5b5b;
+    border-radius: 50%;
+}
+.progressXp {
+    padding-top: 17px;
+    font-size: 26px;
+    color: #87a19f;
+}
+.bottom {
+    padding-top: 10px;
+    padding-bottom: 15px;
+}
+.startDate {
+    padding-top: 35px;
+    font-size: 19px;
+    font-weight: bold;
+    letter-spacing: 2px;
+}
+.inputDate {
+    font-size: 19px;
+    font-weight: bold;
+    letter-spacing: 2px;
+    color: #44696c;
+}
+.testSpan {
+    position: absolute;
+    left: -1000px;
+    top: -100000px;
+    /*position: relative;
+    left: -1px;
+    top: -30px;
+    border: 1px solid red;*/
+}
+
+.line {
+    margin: 20px auto 30px;
+    width: 100%;
+    border-top: 1px solid #bbb;
+}
+.result {
+    padding-bottom: 30px;
+    letter-spacing: 2px;
+}
+.rollDown {
+    font-size: 19px;
+    height: 120px;
+    transition: height 0.5s;
+    overflow: hidden;
+    margin: 0 -50px;
+    padding: 0 50px;
+}
+.rollDown.opened {
+    height: 370px;
+}
+
+/*********** visualization *********/
+.xpProg {
+    margin-top: 35px;
+}
+.xpProgBg {
+    background: #d7dfd6;
+    height: 9px;
+    width: 100%;
+    border-radius: 7px;
+    position: absolute;
+    left: 0;
+    top: 0;
+}
+.xpLabel.minor {
+    opacity: 0.4;
+}
+.xpLabel {
+    position: absolute;
+    left: 0%;
+    margin-left:-8px;
+    top: -4px;
+    height: 17px;
+    width: 17px;
+    background: #d7dfd6;
+    border-radius: 50%;
+}
+.xpLabel .text {
+    position: relative;
+    top: 18px;
+    font-size: 13px;
+    font-weight: bold;
+}
+.xpLabel.you {
+    background: #ee5b5b;
+    transition: left 0.3s;
+}
+.youBox {
+    position: absolute;
+    top: -51px;
+    margin-left: -26px;
+    background: #ee5b5b;
+    transition: opacity 1s;
+    transition: left 0.3s;
+}
+.youBox:after {
+    top: 100%;
+    left: 50%;
+    border: solid transparent;
+    content: " ";
+    height: 0;
+    width: 0;
+    position: absolute;
+    pointer-events: none;
+    border-color: rgba(238, 91, 91, 0);
+    border-top-color: #ee5b5b;
+    border-width: 10px;
+    margin-left: -10px;
+}
+.innerBox {
+    font-weight: bold;
+    padding: 5px 10px;
+    color: #fff;
+}
+
+.fakeInput {
+    padding: 3px 10px;
+    display: inline-block;
+    border: 1px solid #ddd;
+    width: 200px;
+    cursor: text;
+    -webkit-user-select: none;
+}
+
+.level, .progress {
+    transition: filter 0.3s, opacity 0.3s;
+}
+
+.disabled {
+    opacity: 0.5;
+    -webkit-filter: blur(4px);
+    -moz-filter: blur(4px);
+    -ms-filter: blur(4px);
+    filter: blur(4px);
+}

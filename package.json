@@ -1,0 +1,36 @@
+{
+  "name": "pokemongo-trainer-level",
+  "homepage": "https://github.com/thomasdondorf/poke-level-calc",
+  "version": "0.1.0",
+  "description": "Pokemon Go Trainer Level Calculator",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/thomasdondorf/poke-level-calc.git"
+  },
+  "author": "Thomas Dondorf",
+  "license": "GPL-3.0+",
+  "devDependencies": {
+    "react-scripts": "0.2.1"
+  },
+  "dependencies": {
+    "bootstrap": "^4.0.0-alpha.3",
+    "classnames": "^2.2.5",
+    "history": "^2.1.2",
+    "react": "^15.3.0",
+    "react-addons-shallow-compare": "15.3.0",
+    "react-contenteditable": "^2.0.1",
+    "react-dom": "^15.3.0",
+    "react-redux": "^4.4.5",
+    "react-router": "^2.7.0",
+    "react-router-redux": "4.0.5",
+    "react-virtualized": "7.17.1",
+    "redux": "^3.5.2",
+    "redux-logger": "^2.6.1",
+    "redux-thunk": "^2.1.0"
+  },
+  "scripts": {
+    "start": "react-scripts start",
+    "build": "react-scripts build",
+    "eject": "react-scripts eject"
+  }
+}
