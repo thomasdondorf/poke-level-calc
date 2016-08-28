@@ -168,8 +168,8 @@ input.variableSize {
 }
 .youBox {
     position: absolute;
-    top: -51px;
-    margin-left: -26px;
+    top: -53px;
+    margin-left: -29px;
     background: #ee5b5b;
     transition: opacity 1s;
     transition: left 0.3s;
