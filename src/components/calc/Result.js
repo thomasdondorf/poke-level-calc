@@ -11,8 +11,6 @@ export default class Header extends Component {
         var today = new Date();
         var numberOfDays = Math.max(1, (Math.round((today - this.props.startDate)/DAY)-1));
 
-        console.log('DAYS: ' + numberOfDays);
-
         var xpPerDay = Math.floor(this.props.xp / numberOfDays);
 
         var xpTodo = totalXp - this.props.xp;
