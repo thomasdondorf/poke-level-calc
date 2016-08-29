@@ -66,7 +66,7 @@ export default class Header extends Component {
                 YOU ARE MAKING:<br />
                 <strong>{xpPerDay} XP / DAY</strong><br />
                 <br />
-                YOU WILL REACH <strong>LEVEL 40</strong> IN
+                YOU <span className="bigOnly">WILL</span> REACH <strong>LEVEL 40</strong> IN
                 <div className="timeNeeded">{resultText}</div>
                 {secondLine}
             </div>
