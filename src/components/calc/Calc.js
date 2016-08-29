@@ -4,6 +4,7 @@ import './calc.css';
 import Input from "./Input";
 import Result from "./Result";
 import Visualization from './Visualization';
+import Github from '../Github';
 
 import levelXp, {totalXp} from './levels';
 var MAX_LEVEL = levelXp.length;
@@ -91,6 +92,7 @@ export default class Header extends Component {
                     </div>
                 </div>
                 {resultComponents}
+                <Github/>
             </div>
         );
     }
