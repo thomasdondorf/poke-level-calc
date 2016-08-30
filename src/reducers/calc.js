@@ -9,7 +9,10 @@ if (location.hash && location.hash.length > 0) {
 
 let defaultState = parseDate(query.date || 'mm/dd/2016');
 defaultState.xp = parseXp(query.xp || '?');
-defaultState.goal = 40;
+defaultState.goal = parseInt(query.level, 10);
+if (defaultState.goal !== 30) {
+    defaultState.goal = 40;
+}
 
 function newState(state) {
     var hash = [];
@@ -18,6 +21,9 @@ function newState(state) {
     }
     if (state.date !== null) {
         hash.push('date='+state.dateStr);
+    }
+    if (state.goal !== 40) {
+        hash.push('level=' + state.goal);
     }
     var fullHash = hash.length === 0 ? '/' : '#' + hash.join('&');
     history.replaceState({}, "Pokemon Go Trainer Level", fullHash);
