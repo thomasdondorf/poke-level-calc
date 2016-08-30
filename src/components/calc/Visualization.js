@@ -2,27 +2,34 @@ import React, { Component } from 'react'
 
 import levels, {totalXp} from './levels';
 
-var levelsToShow = [1,25,30,33,35,36,37,38,39,40];
-var levelMajor = [1,25,30,35,40];
-var levelStats = [];
-
-var xpSoFar = 0;
-levels.forEach((xp, index) => {
-    var level = index+1;
-    xpSoFar += xp;
-    if (levelsToShow.indexOf(level) !== -1) {
-        levelStats.push({
-            level : level,
-            totalXp : xpSoFar,
-            perc : xpSoFar / totalXp,
-            minor : levelMajor.indexOf(level) === -1
-        });
-    }
-});
+var levelsToShow = {
+    30 : [1,15,20,23,25,26,27,28,29,30],
+    40 : [1,25,30,33,35,36,37,38,39,40]
+};
+var levelMajor = {
+    30 : [1,15,20,25,30],
+    40 : [1,25,30,35,40]
+};
 
 export default class Header extends Component {
 
     render() {
+
+        var levelStats = [];
+
+        var xpSoFar = 0;
+        levels.forEach((xp, index) => {
+            var level = index+1;
+            xpSoFar += xp;
+            if (levelsToShow[this.props.goal].indexOf(level) !== -1) {
+                levelStats.push({
+                    level : level,
+                    totalXp : xpSoFar,
+                    perc : xpSoFar / totalXp[this.props.goal],
+                    minor : levelMajor[this.props.goal].indexOf(level) === -1
+                });
+            }
+        });
 
         var elems = [];
         levelStats.forEach((level) => {

@@ -2,13 +2,14 @@
 import { connect } from 'react-redux';
 
 import Calc from '../../components/calc/Calc';
-import { setXp, setStartDate } from '../../actions/calc';
+import { setXp, setStartDate, setGoal } from '../../actions/calc';
 
 const mapStateToProps = (state) => {
     return {
         xp : state.calc.xp,
         dateStr : state.calc.dateStr,
-        date : state.calc.date
+        date : state.calc.date,
+        goal : state.calc.goal
     }
 };
 
@@ -19,6 +20,9 @@ const mapDispatchToProps = (dispatch) => {
         },
         setStartDate : (dateStr) => {
             dispatch(setStartDate(dateStr))
+        },
+        setGoal : (level) => {
+            dispatch(setGoal(level))
         }
     }
 };

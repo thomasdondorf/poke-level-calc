@@ -1,5 +1,5 @@
 
-import { SET_XP, SET_START_DATE } from '../actions/calc';
+import { SET_XP, SET_START_DATE, SET_GOAL } from '../actions/calc';
 import querystring from 'querystring';
 
 var query = {};
@@ -7,8 +7,9 @@ if (location.hash && location.hash.length > 0) {
     query = querystring.parse(location.hash.substr(1));
 }
 
-let defaultState = parseDate(query.date || '?/?/2016');
+let defaultState = parseDate(query.date || 'mm/dd/2016');
 defaultState.xp = parseXp(query.xp || '?');
+defaultState.goal = 40;
 
 function newState(state) {
     var hash = [];
@@ -48,11 +49,15 @@ function parseDate(dateStr) {
 export default function calc(state = defaultState, action) {
     switch (action.type) {
         case SET_XP:
-            return  newState(Object.assign({}, state, {
+            return newState(Object.assign({}, state, {
                 xp: parseXp(action.xp)
             }));
         case SET_START_DATE:
-            return  newState(Object.assign({}, state, parseDate(action.dateStr)));
+            return newState(Object.assign({}, state, parseDate(action.dateStr)));
+        case SET_GOAL:
+            return newState(Object.assign({}, state, {
+                goal : action.level
+            }));
         default:
             return state;
     }

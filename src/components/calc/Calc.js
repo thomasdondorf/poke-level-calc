@@ -43,7 +43,7 @@ export default class Header extends Component {
         var progressStyle = {
             width : (100*perc) + '%'
         };
-        var totalPerc = Math.min(1, this.props.xp / totalXp);
+        var totalPerc = Math.min(1, this.props.xp / totalXp[this.props.goal]);
 
         var validData = totalPerc >= 0 && this.props.date !== null
             && this.props.date < (new Date());
@@ -56,12 +56,14 @@ export default class Header extends Component {
         if (validData) {
             resultComponents = (<div className="rollDown opened">
                 <div className="line"></div>
-                <Result startDate={this.props.date} xp={this.props.xp} />
-                <Visualization perc={totalPerc} />
+                <Result startDate={this.props.date} xp={this.props.xp} goal={this.props.goal} />
+                <Visualization perc={totalPerc} goal={this.props.goal} />
             </div>);
         }
 
         var disabledStyle = this.props.xp === '?' ? ' disabled' : '';
+
+        // this is really getting messed up now...
 
         return (
             <div className="calc">
@@ -88,6 +90,17 @@ export default class Header extends Component {
                             <Input value={this.props.dateStr} className="inputDate" ref={(c) => {this.input2 = c}}
                                    onChange={(evt) => this.props.setStartDate(evt.target.value)}
                             />
+                        </div>
+                    </div>
+                    <div className="startDate levelchoice">
+                        LEVEL:<br />
+                        <div className="btn-group" data-toggle="buttons">
+                            <label className={"btn btn-secondary"+(this.props.goal === 30 ? ' active':'')} onClick={()=>this.props.setGoal(30)}>
+                                <input type="radio" name="options" id="option1" autoComplete="off" defaultChecked={this.props.goal === 30 ? 'checked':''} /> 30
+                            </label>
+                            <label className={"btn btn-secondary"+(this.props.goal === 40 ? ' active':'')} onClick={()=>this.props.setGoal(40)}>
+                                <input type="radio" name="options" id="option2" autoComplete="off" defaultChecked={this.props.goal === 40 ? 'checked':''} /> 40
+                            </label>
                         </div>
                     </div>
                 </div>

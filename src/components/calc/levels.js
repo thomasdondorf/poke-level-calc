@@ -44,4 +44,7 @@ levels = levels.map(x => 1000*x);
 
 export default levels;
 
-export var totalXp = levels.reduce((x, y) => x+y, 0);
+export var totalXp = {
+    30 : levels.slice(0,30).reduce((x, y) => x+y, 0),
+    40 : levels.reduce((x, y) => x+y, 0)
+};

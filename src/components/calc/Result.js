@@ -13,7 +13,7 @@ export default class Header extends Component {
 
         var xpPerDay = Math.floor(this.props.xp / numberOfDays);
 
-        var xpTodo = totalXp - this.props.xp;
+        var xpTodo = totalXp[this.props.goal] - this.props.xp;
 
         var resultText = '';
         var secondLine = '';
@@ -64,7 +64,7 @@ export default class Header extends Component {
                 YOU ARE MAKING:<br />
                 <strong>{xpPerDay} XP / DAY</strong><br />
                 <br />
-                YOU <span className="bigOnly">WILL</span> REACH <strong>LEVEL 40</strong> IN
+                YOU <span className="bigOnly">WILL</span> REACH <strong>LEVEL {this.props.goal}</strong> IN
                 <div className="timeNeeded">{resultText}</div>
                 {secondLine}
             </div>
