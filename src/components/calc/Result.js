@@ -40,7 +40,7 @@ export default class Header extends Component {
                 }
 
                 if (restMonths === 1){
-                    resultText = ', ' + restMonths + ' MONTH';
+                    resultText += ', ' + restMonths + ' MONTH';
                 } else if (restMonths >= 2 && years <= 2) {
                     resultText += ', ' + restMonths + ' MONTHS';
                 }
