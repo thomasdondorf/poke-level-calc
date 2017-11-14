@@ -39,7 +39,9 @@ export default class Header extends Component {
                     resultText = years + ' YEARS';
                 }
 
-                if (restMonths >= 3 && years <= 2) {
+                if (restMonths === 1){
+                    resultText += ', ' + restMonths + ' MONTH';
+                } else if (restMonths >= 2 && years <= 2) {
                     resultText += ', ' + restMonths + ' MONTHS';
                 }
             } else if (daysUntil40 >= 30) { // months
