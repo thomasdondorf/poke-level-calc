@@ -17,6 +17,7 @@ export default class Header extends Component {
 
         var resultText = '';
         var secondLine = '';
+        var firstLine = '';
         if (xpTodo > 0) {
             var daysUntil50 = Math.ceil(xpTodo / xpPerDay);
 
@@ -24,8 +25,8 @@ export default class Header extends Component {
                 secondLine = '(OR ' + daysUntil50 + ' DAYS)';
             }
             if (daysUntil50 >= 365*20) { // years
-                resultText = 'NEVER ';
                 secondLine = 'SORRY...';
+                firstLine = `YOU <span className="bigOnly">WILL</span> NEVER REACH <strong> LEVEL ${this.props.goal}</strong> <br></br>`;
             } else if (daysUntil50 >= 340) { // years
                 var years = Math.floor(daysUntil50 / 365);
                 var restMonths = Math.floor((daysUntil50 % 365) / 31);
@@ -38,10 +39,10 @@ export default class Header extends Component {
                 } else {
                     resultText = years + ' YEARS';
                 }
-
                 if (restMonths >= 3 && years <= 2) {
                     resultText += ', ' + restMonths + ' MONTHS';
                 }
+                firstLine = `YOU <span className="bigOnly">WILL</span> REACH <strong>LEVEL ${this.props.goal}</strong> IN <div className="timeNeeded"> ${resultText} </div>`
             } else if (daysUntil50 >= 30) { // months
                 var months = Math.ceil(daysUntil50 / 30.5);
                 if (months === 1) {
@@ -49,24 +50,28 @@ export default class Header extends Component {
                 } else {
                     resultText = months + ' MONTHS';
                 }
+                firstLine = `YOU <span className="bigOnly">WILL</span> REACH <strong>LEVEL ${this.props.goal}</strong> IN <div className="timeNeeded"> ${resultText} </div>`
             } else {
                 resultText = daysUntil50 + ' DAYS';
                 secondLine = '(KEEP IT UP!)';
+                firstLine = `YOU <span className="bigOnly">WILL</span> REACH <strong>LEVEL ${this.props.goal}</strong> IN <div className="timeNeeded"> ${resultText} </div>`
             }
         } else {
-            resultText = 'YOU DID IT!';
-            secondLine = 'BLEEP, BLOOP...';
+            firstLine = 'YOU DID IT!';
+            secondLine = 'CONGRATULATIONS 🎉';
         }
 
         return (
 
-            <div className="result">
-                YOU ARE MAKING:<br />
-                <strong>{xpPerDay} XP / DAY</strong><br />
-                <br />
-                YOU <span className="bigOnly">WILL</span> REACH <strong>LEVEL {this.props.goal}</strong> IN
-                <div className="timeNeeded">{resultText}</div>
-                {secondLine}
+            <div className="result"
+                dangerouslySetInnerHTML={{__html: `<div className="result">
+                            YOU ARE MAKING:<br />
+                            <strong>${xpPerDay} XP / DAY</strong><br />
+                            <br /> 
+                            ${firstLine} 
+                            ${secondLine}
+                            </div>`}}
+                            >
             </div>
         );
     }
