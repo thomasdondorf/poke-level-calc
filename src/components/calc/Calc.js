@@ -46,7 +46,6 @@ export default class Header extends Component {
             width : (100*perc) + '%',
         };
         var totalPerc = Math.min(1, this.props.xp / totalXp[this.props.goal]);
-        console.log(this.props.xp);
         var validData = totalPerc >= 0 && this.props.date !== null
             && this.props.date < (new Date());
 
@@ -73,7 +72,7 @@ export default class Header extends Component {
                 <div className="xp">
                     <div className="fakeInput" onClick={()=>{this.input1.focus();}}>
                         <Input value={this.props.xp} className="inputXp" ref={(c) => {this.input1 = c}}
-                            onChange={(evt) => { this.props.setXp(evt.target.value)  }}
+                            onChange={(evt) => this.props.setXp(evt.target.value)}
                         /> XP
                     </div>
                 </div>

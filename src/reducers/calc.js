@@ -7,16 +7,9 @@ if (location.hash && location.hash.length > 0) {
     query = querystring.parse(location.hash.substr(1));
 }
 
-let defaultState = parseDate(query.date || 'mm/dd/2016');
+let defaultState = parseDate(query.date || 'dd/mm/2016');
 defaultState.xp = parseXp(query.xp || '?');
 defaultState.goal = parseInt(query.level, 10);
-if (defaultState.goal !== 30 && defaultState.goal !== 50) {
-    defaultState.goal = 40;
-}else if (defaultState.goal !== 40 && defaultState.goal !== 50) {
-    defaultState.goal = 30;
-}else if (defaultState.goal !== 30 && defaultState.goal !== 40) {
-    defaultState.goal = 50;
-}
 
 function newState(state) {
     var hash = [];
@@ -44,11 +37,14 @@ function parseXp(xp) {
 
 function parseDate(dateStr) {
 
-    var correctDate = /\d{1,2}\/\d{1,2}\/(201\d|1\d)/;
+    var correctDate = /\d{1,2}\/\d{1,2}\/(20{1,2}\d|1\d)/;
     var date = new Date(dateStr);
     var newDate = null;
     if (!isNaN(date.getTime()) && correctDate.test(dateStr)) {
-        newDate = date;
+        console.log(date.getTime());
+        var newDatestr = dateStr.split("/");
+        newDate = new Date(newDatestr[2] + "-" + newDatestr[1] + "-" + newDatestr[0]);
+        console.log(newDate);
     }
     return {
         dateStr: dateStr,
