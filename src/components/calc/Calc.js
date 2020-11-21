@@ -23,7 +23,7 @@ function calcStats(xp) {
         xpLeft -= levelXp[level];
         level++;
     }
-    if (level === 40) {
+    if (level === 50) {
         xpLeft = levelXp[levelXp.length-1]
     }
     return {
@@ -41,7 +41,7 @@ export default class Header extends Component {
 
         var perc = stats.xpLeft / stats.xpGoal;
         var progressStyle = {
-            width : (100*perc) + '%'
+            width : (100*perc) + '%',
         };
         var totalPerc = Math.min(1, this.props.xp / totalXp[this.props.goal]);
 
@@ -100,6 +100,9 @@ export default class Header extends Component {
                             </label>
                             <label className={"btn btn-secondary"+(this.props.goal === 40 ? ' active':'')} onClick={()=>this.props.setGoal(40)}>
                                 <input type="radio" name="options" id="option2" autoComplete="off" defaultChecked={this.props.goal === 40 ? 'checked':''} /> 40
+                            </label>
+                            <label className={"btn btn-secondary"+(this.props.goal === 50 ? ' active':'')} onClick={()=>this.props.setGoal(50)}>
+                                <input type="radio" name="options" id="option2" autoComplete="off" defaultChecked={this.props.goal === 50 ? 'checked':''} /> 50
                             </label>
                         </div>
                     </div>

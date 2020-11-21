@@ -18,17 +18,17 @@ export default class Header extends Component {
         var resultText = '';
         var secondLine = '';
         if (xpTodo > 0) {
-            var daysUntil40 = Math.ceil(xpTodo / xpPerDay);
+            var daysUntil50 = Math.ceil(xpTodo / xpPerDay);
 
             if (xpPerDay !== 0) {
-                secondLine = '(OR ' + daysUntil40 + ' DAYS)';
+                secondLine = '(OR ' + daysUntil50 + ' DAYS)';
             }
-            if (daysUntil40 >= 365*20) { // years
+            if (daysUntil50 >= 365*20) { // years
                 resultText = 'NEVER ';
                 secondLine = 'SORRY...';
-            } else if (daysUntil40 >= 340) { // years
-                var years = Math.floor(daysUntil40 / 365);
-                var restMonths = Math.floor((daysUntil40 % 365) / 31);
+            } else if (daysUntil50 >= 340) { // years
+                var years = Math.floor(daysUntil50 / 365);
+                var restMonths = Math.floor((daysUntil50 % 365) / 31);
                 if (restMonths >= 9) {
                     restMonths = 0;
                     years++;
@@ -42,15 +42,15 @@ export default class Header extends Component {
                 if (restMonths >= 3 && years <= 2) {
                     resultText += ', ' + restMonths + ' MONTHS';
                 }
-            } else if (daysUntil40 >= 30) { // months
-                var months = Math.ceil(daysUntil40 / 30.5);
+            } else if (daysUntil50 >= 30) { // months
+                var months = Math.ceil(daysUntil50 / 30.5);
                 if (months === 1) {
                     resultText = '1 MONTH';
                 } else {
                     resultText = months + ' MONTHS';
                 }
             } else {
-                resultText = daysUntil40 + ' DAYS';
+                resultText = daysUntil50 + ' DAYS';
                 secondLine = '(KEEP IT UP!)';
             }
         } else {

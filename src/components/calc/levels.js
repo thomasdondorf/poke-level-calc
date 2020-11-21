@@ -37,7 +37,17 @@ var levels = [ 0,
     2000,
     2500,
     3000,
-    5000
+    5000,
+    6000,
+    7500,
+    9000,
+    11000,
+    13000,
+    15500,
+    18000,
+    21000,
+    25000,
+    30000
 ];
 
 levels = levels.map(x => 1000*x);
@@ -46,5 +56,6 @@ export default levels;
 
 export var totalXp = {
     30 : levels.slice(0,30).reduce((x, y) => x+y, 0),
-    40 : levels.reduce((x, y) => x+y, 0)
+    40 : levels.slice(0,40).reduce((x, y) => x+y, 0),
+    50 : levels.reduce((x, y) => x+y, 0)
 };
