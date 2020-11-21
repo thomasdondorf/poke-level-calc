@@ -60,9 +60,10 @@ input.variableSize {
     font-size: 43px;
 }
 .progress, .xpProg {
-    margin: 20px auto;
+    margin: 20px;
     width: 100%;
     position: relative;
+    overflow: visible;
 }
 .progressBg, .progressFront {
     background: #d7dfd6;
@@ -72,11 +73,11 @@ input.variableSize {
     position: absolute;
     left: 0;
     top: 0;
-    transition: width 0.3s;
+    overflow: visible;
+
 }
 .progressFront {
     background: #ee5b5b;
-    width: 50%;
 }
 .progressHandle{
     position: absolute;
@@ -88,9 +89,15 @@ input.variableSize {
     border-radius: 50%;
 }
 .progressXp {
-    padding-top: 17px;
-    font-size: 26px;
+    padding-top: 20px;
+    padding-bottom: 13px;
+    padding-right: 1px;
+    padding-left: 1px;
+    font-size: 18px;
     color: #87a19f;
+    background-color:#e9ecef;
+    border-radius:10px;
+
 }
 .bottom {
     padding-top: 10px;
@@ -131,7 +138,6 @@ input.variableSize {
     font-size: 19px;
     height: 120px;
     transition: height 0.5s;
-    overflow: hidden;
     margin: 0 -50px;
     padding: 0 50px;
 }
