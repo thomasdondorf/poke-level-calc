@@ -10,8 +10,12 @@ if (location.hash && location.hash.length > 0) {
 let defaultState = parseDate(query.date || 'mm/dd/2016');
 defaultState.xp = parseXp(query.xp || '?');
 defaultState.goal = parseInt(query.level, 10);
-if (defaultState.goal !== 30) {
+if (defaultState.goal !== 30 && defaultState.goal !== 50) {
     defaultState.goal = 40;
+}else if (defaultState.goal !== 40 && defaultState.goal !== 50) {
+    defaultState.goal = 30;
+}else if (defaultState.goal !== 30 && defaultState.goal !== 40) {
+    defaultState.goal = 50;
 }
 
 function newState(state) {
@@ -31,7 +35,7 @@ function newState(state) {
 }
 
 function parseXp(xp) {
-    var newXp = Math.min(20000000, parseInt(xp.replace(/[^0-9]/g, ''), 10)) || 0;
+    var newXp = Math.min(1760000000, parseInt(xp.replace(/[^0-9]/g, ''), 10)) || 0;
     if (xp === '?') {
         newXp = '?';
     }

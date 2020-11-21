@@ -32,7 +32,6 @@ export default class Header extends Component {
                 });
             }
         });
-
         var elems = [];
         levelStats.forEach((level) => {
             var levelStyle = {

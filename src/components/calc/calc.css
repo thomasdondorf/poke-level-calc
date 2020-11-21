@@ -249,11 +249,17 @@ input.variableSize {
     border-color: #ddd;
     color: #44696c;
     font-size: 160%;
+    background-color: #a4b0bb;
+}
+.btn:hover{
+    background-color: #7d878f;
+
 }
 .btn.focus, .btn.active, .btn:active { /* remove bootstrap style */
     border-color: #ddd !important;
     color: #44696c !important;
     background: #ddd !important;
+    
 }
 .levelchoice {
     padding-top: 25px;
