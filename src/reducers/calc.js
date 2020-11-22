@@ -37,11 +37,10 @@ function parseXp(xp) {
 
 function parseDate(dateStr) {
 
-    var correctDate = /\d{1,2}\/\d{1,2}\/(20{1,2}\d|1\d)/;
-    var date = new Date(dateStr);
+    var correctDate = /\d{1,2}\/\d{1,2}\/\d{4}/;
     var newDate = null;
-    if (!isNaN(date.getTime()) && correctDate.test(dateStr)) {
-        console.log(date.getTime());
+    if (correctDate.test(dateStr)) {
+        
         var newDatestr = dateStr.split("/");
         newDate = new Date(newDatestr[2] + "-" + newDatestr[1] + "-" + newDatestr[0]);
         console.log(newDate);
